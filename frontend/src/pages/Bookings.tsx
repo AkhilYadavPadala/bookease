@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, MapPin, Phone } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { useAuth } from "../context/Authcontext";
+import { API_BASE } from "../config";
 import {
   Dialog,
   DialogContent,
@@ -14,7 +15,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-const API_BASE_URL = "http://localhost:3000"; // change if deployed
+const API_BASE_URL = API_BASE;
 
 // ✅ --- NEW SKELETON COMPONENT ---
 // This component mimics the layout of your BookingCard for a smooth loading experience.

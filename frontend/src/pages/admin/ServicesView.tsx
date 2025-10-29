@@ -18,8 +18,9 @@ import {
 import { useAuth } from "../../context/Authcontext";
 import { toast } from "sonner";
 import { supabase } from "../../supabaseclient";
+import { API_BASE } from "../../config";
 
-const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:3000';
+ 
 
 // This is the shape of the nested `available_slots` data from the backend
 interface SlotRow {

@@ -9,6 +9,7 @@ import { ArrowLeft, Clock, MapPin, Star, Check, PartyPopper, CalendarCheck, Cale
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import { useAuth } from "../context/Authcontext";
+import { API_BASE } from "../config";
 
 // ✅ UPDATED: Added new optional fields for richer details
 type Resource = {
@@ -35,7 +36,7 @@ type DaySlots = {
 
 const api = {
   getResource: async (id: string): Promise<Resource> => {
-    const res = await fetch(`http://localhost:3000/service/${id}`);
+    const res = await fetch(`${API_BASE}/service/${id}`);
     if (!res.ok) {
       if (res.status === 404) throw new Error("Resource not found");
       throw new Error("Failed to fetch resource details");
@@ -44,7 +45,7 @@ const api = {
   },
 
   getDaySlots: async (resource_id: string, date: string): Promise<DaySlots> => {
-    const url = `http://localhost:3000/slots/day?resource_id=${encodeURIComponent(resource_id)}&date=${encodeURIComponent(date)}`;
+    const url = `${API_BASE}/slots/day?resource_id=${encodeURIComponent(resource_id)}&date=${encodeURIComponent(date)}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error("Failed to fetch slots");
     return res.json();
@@ -57,7 +58,7 @@ const api = {
     booking_date: string;
     booked_slot: string;
   }) => {
-    const res = await fetch(`http://localhost:3000/bookings`, {
+    const res = await fetch(`${API_BASE}/bookings`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

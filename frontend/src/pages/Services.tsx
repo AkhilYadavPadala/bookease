@@ -7,9 +7,9 @@ import { Search, MapPin, Star, ArrowRight, LocateFixed } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { toast } from "sonner";
+import { API_BASE } from "../config";
 
 // Backend base URL
-const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:3000';
 
 // --- INTERFACES ---
 interface Resource {

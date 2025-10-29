@@ -12,6 +12,7 @@ import {
 import { Calendar, Clock, Loader2 } from "lucide-react";
 import { useAuth } from "../../context/Authcontext";
 import { toast } from "sonner";
+import { API_BASE } from "../../config";
 
 // Interface for appointment data
 interface AdminAppointment {
@@ -24,7 +25,7 @@ interface AdminAppointment {
   status: 'confirmed' | 'pending' | 'completed' | 'cancelled';
 }
 
-const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:3000';
+ 
 
 // Helper function to handle the 'selected_services' data format.
 const formatServices = (services: string[] | string | null | undefined): string => {
