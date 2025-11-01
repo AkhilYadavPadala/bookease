@@ -240,11 +240,11 @@ const Landing = () => {
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             {services.map((service) => (
               <motion.div
@@ -458,14 +458,15 @@ const Landing = () => {
                   y: 0,
                   transition: { duration: 0.6, ease: "easeOut" }
                 }
-              }}>
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              >
                 <Button
                   size="lg"
                   className="text-lg h-14 px-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:scale-105 group"
                   onClick={() => navigate('/auth')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
                 >
                   <Calendar className="mr-2 h-5 w-5" />
                   Get Started Free
@@ -486,15 +487,16 @@ const Landing = () => {
                   y: 0,
                   transition: { duration: 0.6, ease: "easeOut", delay: 0.1 }
                 }
-              }}>
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              >
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-lg h-14 px-10 border-2 border-neutral-600 bg-black/20 text-white backdrop-blur-md hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105"
                   onClick={() => navigate('/admin-auth')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
                 >
                   For Businesses
                 </Button>
